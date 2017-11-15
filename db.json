@@ -1,0 +1,71 @@
+{
+  "blogs": [
+    {
+      "title": "SPJIMR ranked 4th in India's best B-Schools in BT survey",
+      "content": "SP Jain Institute of Management & Research's Post Graduate Diploma in Management (PGDM) is a two-year, full-time residential program and has been Ranked 4th recently by Business Today. SPJIMR is known in the Industry for its Innovative Pedagogy and Value Based Learning. The highest salary on campus was a record ₹39.5 lakh per annum and the average salary ₹20.9 lakh.",
+      "type": "Technology",
+      "authorId": 1,
+      "author": "admin",
+      "id": 5
+    },
+    {
+      "title": "Release of Mahira Khan's film on rape cancelled in Pakistan",
+      "content": "The release of Mahira Khan starrer 'Verna' has been cancelled reportedly over its subject of rape. The Sindh Board of Film Censors hasn't cleared the film yet and it's waiting for the decision of Pakistan's Censor Board. \"The film is yet to be viewed by the board and see if there're any objections,\" said the Censor Board chief Mobashir Hassan.",
+      "type": "Entertainment",
+      "authorId": 1,
+      "author": "admin",
+      "id": 6
+    },
+    {
+      "title": "No constitutional backing for 'Delhi as capital': Delhi govt",
+      "content": "AAP-led Delhi government on Tuesday asked the Supreme Court whether the Constitution of India or any other Parliamentary law declared Delhi as India's capital. Delhi government's advocate asserted, \"There's National Capital Territory of Delhi Act but it doesn't constitute Delhi as the capital of India.\" \"Tomorrow, the Centre can decide to move the capital to somewhere else,\" she added.",
+      "type": "Politics",
+      "authorId": 1,
+      "author": "admin",
+      "id": 7
+    },
+    {
+      "title": "I-T recovers luxury cars worth ₹5 crore from Sasikala's aide",
+      "content": "I-T Department has recovered luxury cars worth over ₹5 crore from VK Sasikala's aide Sukesh Chandrasekhar who had allegedly attempted to bribe the Election Commission for party symbol. Reportedly, Porsche, Lamborghini, Rolls Royce, Range Rover are among the cars recovered. Investigations revealed that Sukesh paid for the vehicles in cash and was allegedly purchasing them while he was under arrest",
+      "type": "Politics",
+      "authorId": 1,
+      "author": "admin",
+      "id": 8
+    },
+    {
+      "title": "Live samples of one of world's oldest life forms discovered",
+      "content": "Australia-based researchers have discovered living specimens of stromatolites within a World Heritage Area in Tasmania, that are among the oldest evidences of life on Earth having first appeared about 3.7 billion years ago. Such life forms are usually found in hypersaline waters, however, they were found in freshwater spring mounds for the first time in Tasmanian wetlands, said the researchers.",
+      "type": "Entertainment",
+      "authorId": 1,
+      "author": "admin",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "favourites": [
+        7,
+        5,
+        9
+      ]
+    },
+    {
+      "id": 2,
+      "username": "garima",
+      "password": "garima",
+      "favourites": []
+    },
+    {
+      "id": 3,
+      "username": "rhythm",
+      "password": "rhythm",
+      "favourites": [
+        5,
+        8
+      ]
+    }
+  ]
+}

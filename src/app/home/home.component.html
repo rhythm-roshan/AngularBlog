@@ -1,0 +1,46 @@
+<!--<div class="collection">-->
+
+
+<!--<a *ngFor="let blog of blogs " class="collection-item">-->
+<!--{{blog.title | uppercase}}-->
+<!--<button class = "right"(click)="deleteBlog(blog)"><i class="material-icons">delete</i></button>-->
+<!--<button class = "right"(click)="updateBlog(blog)"><i class="material-icons">system_update_alt</i></button>-->
+<!--<br>-->
+
+<!--<p>{{blog.type | uppercase}}</p>-->
+<!--</a>-->
+<!--</div>-->
+<div class="text-center">
+
+  <h2>Welcome to world of Bloggers..!!</h2>
+
+<div class="conatiner-fluid">
+  <div class="input-field col s2 right ">
+    <input placeholder="Search" [(ngModel)]="query" id="first_name" type="text" class="validate">
+  </div>
+</div>
+  <div class="row">
+    <a *ngFor="let blog of blogs | search:'title,type':query">
+      <div class="col s12 m12">
+        <div class="card darken-1">
+          <div class="card-content black-text">
+            <span class="card-title text-center well"> {{blog.title | uppercase}}</span>
+            <div class="chip"><i class="small material-icons">person_outline {{blog.author | uppercase}}</i></div>
+            <div class="chip"><i class=" small material-icons">subject {{blog.type | uppercase}}</i></div>
+
+            <p>{{blog.content | uppercase}}</p>
+
+          </div>
+          <div class="card-action text-center">
+            <a class="btn tooltipped " data-position="bottom" data-tooltip="I am a tooltip" ng-click="fav"
+               (click)="MarkAsFav(blog.id)">
+              {{this.fav}}
+
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
