@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getBlogs();
     this.getUsers();
+
+
   }
+
 
   getBlogs() {
     this.request.loadData()
@@ -34,6 +37,7 @@ export class HomeComponent implements OnInit {
     this.user.loadData()
       .subscribe((data) => {
         this.users = data;
+
       });
   }
 
@@ -82,12 +86,23 @@ export class HomeComponent implements OnInit {
 
   }
 
-  isFav(id): boolean {
-    return this.arr.indexOf(id) !== -1;
+  isFav(id): string {
+    let temp = JSON.parse(sessionStorage.getItem("currentuser"));
+    if (temp != null) {
+      var tempUser = this.users.find(data => data['id'] == temp.id);
+      console.log(tempUser);
+      this.arr = tempUser['favourites'];
+      if (this.arr.includes(id))
+        return "MARKED";
+      else
+        return "MARK AS FAV";
+    }
+    else {
+      return "Mark As Fav";
+    }
+
+
   }
 
-  isFavNot(id): boolean {
-    return this.arr.indexOf(id) == -1;
-  }
 
 }

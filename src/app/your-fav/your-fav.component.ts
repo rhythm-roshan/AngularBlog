@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, OnChanges} from '@angular/core';
 import {BlogServicesService} from "../blog-services.service";
 import {UserServicesService} from "../user-services.service";
 
@@ -7,21 +7,33 @@ import {UserServicesService} from "../user-services.service";
   templateUrl: './your-fav.component.html',
   styleUrls: ['./your-fav.component.css']
 })
-export class YourFavComponent implements OnInit {
+export class YourFavComponent implements OnInit, OnChanges {
 
-
+  rerender = false;
   blogs: Object[] = [];
   users: Object[] = [];
 
   filterBlogs: Object[] = [];
 
-  constructor(private request: BlogServicesService, private user: UserServicesService) {
+  constructor(private request: BlogServicesService, private user: UserServicesService, private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     this.getBlogs();
     this.getUsers();
+    this.doRerender();
 
+  }
+
+  ngOnChanges() {
+    this.doRerender();
+  }
+
+
+  doRerender() {
+    this.rerender = true;
+    this.cdRef.detectChanges();
+    this.rerender = false;
   }
 
   getBlogs() {
@@ -42,18 +54,17 @@ export class YourFavComponent implements OnInit {
   filter() {
 
     let temp = JSON.parse(sessionStorage.getItem("currentuser"));
-    var tempUser = this.users.find(data => data['id'] == temp.id);
-    console.log(tempUser);
-    console.log("hey");
-    this.blogs.forEach(data1 => {
-      console.log("yo"+data1);
-      if (tempUser['favourites'].find(id => id == data1['id'])) {
-        this.filterBlogs.push(data1);
-      }
+    if (temp != null) {
+      var tempUser = this.users.find(data => data['id'] == temp.id);
 
-    })
+      this.blogs.forEach(data1 => {
+        console.log("yo" + data1);
+        if (tempUser['favourites'].find(id => id == data1['id'])) {
+          this.filterBlogs.push(data1);
+        }
 
-    console.log(this.filterBlogs);
+      })
+    }
 
 
   }
