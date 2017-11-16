@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogServicesService} from "../blog-services.service";
+import {UserServicesService} from "../user-services.service";
+
 
 @Component({
   selector: 'app-your-blogs',
@@ -7,14 +9,17 @@ import {BlogServicesService} from "../blog-services.service";
   styleUrls: ['./your-blogs.component.css']
 })
 export class YourBlogsComponent implements OnInit {
-  Actualitems: Object[]=[];
-  items: Object[]=[];
+  Actualitems: Object[] = [];
+  items: Object[] = [];
+  users: Object[] = [];
 
-  constructor(private request: BlogServicesService) {
+  constructor(private request: BlogServicesService, private user: UserServicesService) {
   }
 
   ngOnInit() {
     this.getBlogs();
+    this.getUsers();
+
   }
 
 
@@ -26,11 +31,9 @@ export class YourBlogsComponent implements OnInit {
         let temp = JSON.parse(sessionStorage.getItem("currentuser"));
         console.log(this.Actualitems);
         this.Actualitems.forEach(data => {
-          console.log("yo");
-          console.log(temp.id);
-          console.log(data['authorId']);
+
           if (temp.id == data['authorId']) {
-            console.log("hi bharti..!!");
+
             this.items.push(data);
           }
 
@@ -39,6 +42,19 @@ export class YourBlogsComponent implements OnInit {
         console.log(this.items);
       })
 
+
+  }
+
+  getUsers() {
+    this.user.loadData()
+      .subscribe((data) => {
+
+        this.users = data;
+      })
+
+    this.request.loadData().subscribe((data) => {
+      this.Actualitems = data;
+    })
 
   }
 
@@ -68,9 +84,35 @@ export class YourBlogsComponent implements OnInit {
     this.request.deleteData(item.id)
       .subscribe(data => {
         this.getBlogs();
-        console.log(data)
+        console.log(data);
+        this.getUsers();
+        console.log("shfv");
+
+        this.allDel(item);
+
+
       })
 
   }
 
+  allDel(item) {
+    this.users.forEach(User => {
+      console.log("hjsgf");
+      console.log(User['favourites'].find(val => val == item.id))
+      if (User['favourites'].find(val => val == item.id)) {
+        var arr = User['favourites'];
+        var pos = arr.indexOf(item.id);
+        arr.splice(pos, 1);
+        var tempUser = {
+          id: User['id'],
+          username: User['username'],
+          password: User['password'],
+          favourites: arr
+        }
+        this.user.updateData(tempUser).subscribe(data => console.log(data));
+
+
+      }
+    })
+  }
 }

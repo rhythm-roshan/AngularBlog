@@ -17,14 +17,6 @@
       "id": 6
     },
     {
-      "title": "No constitutional backing for 'Delhi as capital': Delhi govt",
-      "content": "AAP-led Delhi government on Tuesday asked the Supreme Court whether the Constitution of India or any other Parliamentary law declared Delhi as India's capital. Delhi government's advocate asserted, \"There's National Capital Territory of Delhi Act but it doesn't constitute Delhi as the capital of India.\" \"Tomorrow, the Centre can decide to move the capital to somewhere else,\" she added.",
-      "type": "Politics",
-      "authorId": 1,
-      "author": "admin",
-      "id": 7
-    },
-    {
       "title": "I-T recovers luxury cars worth ₹5 crore from Sasikala's aide",
       "content": "I-T Department has recovered luxury cars worth over ₹5 crore from VK Sasikala's aide Sukesh Chandrasekhar who had allegedly attempted to bribe the Election Commission for party symbol. Reportedly, Porsche, Lamborghini, Rolls Royce, Range Rover are among the cars recovered. Investigations revealed that Sukesh paid for the vehicles in cash and was allegedly purchasing them while he was under arrest",
       "type": "Politics",
@@ -47,9 +39,8 @@
       "username": "admin",
       "password": "admin",
       "favourites": [
-        7,
-        5,
-        9
+        6,
+        5
       ]
     },
     {

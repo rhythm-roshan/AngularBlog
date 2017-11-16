@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   blogs: Object[] = [];
   users: Object[] = [];
   updatedUser;
+  arr: Number[] = [];
   fav = "Mark As Fav";
 
   constructor(private request: BlogServicesService, private user: UserServicesService, private router: Router) {
@@ -49,27 +50,27 @@ export class HomeComponent implements OnInit {
 
       var tempUser = this.users.find(data => data['id'] == temp.id);
       var tempFav = tempUser['favourites'].find(ID => ID == id)
-      var arr = tempUser['favourites'];
+      this.arr = tempUser['favourites'];
       if (tempFav) {
 
         var position = tempUser['favourites'].indexOf(tempFav);
-        arr.splice(position, 1)
+        this.arr.splice(position, 1)
         this.updatedUser = {
           id: tempUser['id'],
           username: tempUser['username'],
           password: tempUser['password'],
-          favourites: arr
+          favourites: this.arr
         }
         this.fav = "Mark as Fav";
         this.user.updateData(this.updatedUser).subscribe(data => console.log(data));
       }
       else {
-        arr.push(id);
+        this.arr.push(id);
         this.updatedUser = {
           id: tempUser['id'],
           username: tempUser['username'],
           password: tempUser['password'],
-          favourites: arr
+          favourites: this.arr
         }
         this.fav = "Marked";
         this.user.updateData(this.updatedUser).subscribe(data => console.log(data));
@@ -78,6 +79,15 @@ export class HomeComponent implements OnInit {
     }
 
     window.location.reload();
+
+  }
+
+  isFav(id): boolean {
+    return this.arr.indexOf(id) !== -1;
+  }
+
+  isFavNot(id): boolean {
+    return this.arr.indexOf(id) == -1;
   }
 
 }
