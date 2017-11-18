@@ -11,7 +11,6 @@ import {SignComponent} from './sign/sign.component';
 import { YourBlogsComponent } from './your-blogs/your-blogs.component';
 import { AddBlogsComponent } from './your-blogs/add-blogs/add-blogs.component';
 import { EditBlogsComponent } from './your-blogs/edit-blogs/edit-blogs.component';
-import { AboutComponent } from './about/about.component';
 import { SearchPipe } from './search.pipe';
 import { YourFavComponent } from './your-fav/your-fav.component';
 
@@ -23,9 +22,6 @@ const approutes = [
 
   {
     path: "home", component: HomeComponent
-  },
-  {
-    path: "about", component: AboutComponent
   },
   {
     path: "sign", component: SignComponent
@@ -48,7 +44,6 @@ const approutes = [
     YourBlogsComponent,
     AddBlogsComponent,
     EditBlogsComponent,
-    AboutComponent,
     SearchPipe,
     YourFavComponent
   ],
