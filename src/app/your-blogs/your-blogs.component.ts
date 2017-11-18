@@ -23,13 +23,13 @@ export class YourBlogsComponent implements OnInit {
   }
 
 
+/****************GET ALL BLOGS*********************/
   getBlogs() {
     this.request.loadData()
       .subscribe((data) => {
         this.Actualitems = data;
 
         let temp = JSON.parse(sessionStorage.getItem("currentuser"));
-        console.log(this.Actualitems);
         this.Actualitems.forEach(data => {
 
           if (temp.id == data['authorId']) {
@@ -44,7 +44,7 @@ export class YourBlogsComponent implements OnInit {
 
 
   }
-
+  /****************GET ALL USERS*********************/
   getUsers() {
     this.user.loadData()
       .subscribe((data) => {
@@ -57,7 +57,7 @@ export class YourBlogsComponent implements OnInit {
     })
 
   }
-
+  /*****************ADD A BLOG********************/
   addBlog(event) {
 
     let temp = JSON.parse(sessionStorage.getItem("currentuser"));
@@ -73,32 +73,29 @@ export class YourBlogsComponent implements OnInit {
     this.request.postData(blog)
       .subscribe(data => {
         this.items.push(data);
-        this.getBlogs();
       })
 
 
   }
 
-
+  /*************DELETE A BLOG************************/
   deleteBlogFinal(item) {
     this.request.deleteData(item.id)
       .subscribe(data => {
-        this.getBlogs();
         console.log(data);
-        this.getUsers();
-        console.log("shfv");
-
         this.allDel(item);
-
-
+        this.getUsers();
+        window.location.reload();
       })
 
   }
 
+  /************* IF A PARTICULAR BLOG IS DELETED THEN THAT BLOG'S***************/
+
+  /**************ID SHOULD ALSO BE DELETED FROM ALL USERS WHO ****************/
+  /**************HAVE MARKED AS FAV*******************************************/
   allDel(item) {
     this.users.forEach(User => {
-      console.log("hjsgf");
-      console.log(User['favourites'].find(val => val == item.id))
       if (User['favourites'].find(val => val == item.id)) {
         var arr = User['favourites'];
         var pos = arr.indexOf(item.id);
@@ -109,6 +106,7 @@ export class YourBlogsComponent implements OnInit {
           password: User['password'],
           favourites: arr
         }
+
         this.user.updateData(tempUser).subscribe(data => console.log(data));
 
 

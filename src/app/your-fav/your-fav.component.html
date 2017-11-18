@@ -1,12 +1,14 @@
-<ng-container *ngIf="!rerender">
-<ul class="collapsible" data-collapsible="accordion">
+
+
+
+<ul class="collapsible" data-collapsible="expandable">
   <li *ngFor="let blog of filterBlogs ">
     <div class="collapsible-header">
-      <i class="material-icons">filter_drama</i>
+      <i class="material-icons">star</i>
       {{blog.title}}
-      </div>
-    <div class="collapsible-body"><p></p></div>
+    </div>
+    <div class="collapsible-body"><span><i class="material-icons small">account_box <sup>{{blog.author | uppercase}}</sup></i> <br> <br> {{blog.content}}</span></div>
   </li>
-
 </ul>
-</ng-container>
+
+

@@ -35,14 +35,14 @@ export class YourFavComponent implements OnInit, OnChanges {
     this.cdRef.detectChanges();
     this.rerender = false;
   }
-
+  /*****************GET ALL BLOGS********************/
   getBlogs() {
     this.request.loadData()
       .subscribe((data) => {
         this.blogs = data;
       });
   }
-
+  /****************GET ALL USERS*********************/
   getUsers() {
     this.user.loadData()
       .subscribe((data) => {
@@ -50,7 +50,7 @@ export class YourFavComponent implements OnInit, OnChanges {
         this.filter();
       });
   }
-
+/******************To filter fav blogs of cureent user********************/
   filter() {
 
     let temp = JSON.parse(sessionStorage.getItem("currentuser"));
@@ -58,7 +58,7 @@ export class YourFavComponent implements OnInit, OnChanges {
       var tempUser = this.users.find(data => data['id'] == temp.id);
 
       this.blogs.forEach(data1 => {
-        console.log("yo" + data1);
+
         if (tempUser['favourites'].find(id => id == data1['id'])) {
           this.filterBlogs.push(data1);
         }

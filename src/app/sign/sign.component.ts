@@ -25,6 +25,8 @@ export class SignComponent implements OnInit {
     this.login();
   }
 
+  /************* TO CHECK LOGIN***************/
+
   check() {
     let temp = JSON.parse(sessionStorage.getItem("currentuser"));
     console.log(temp);
@@ -37,10 +39,13 @@ export class SignComponent implements OnInit {
 
   }
 
+  /************* TO REFRESH PAGE***************/
+
   reload() {
     window.location.reload();
   }
 
+  /************* GET ALL USERS***************/
   getUser() {
     this.request.loadData()
       .subscribe((data) => {
@@ -48,6 +53,8 @@ export class SignComponent implements OnInit {
       })
   }
 
+  /************* IF SOMEONE IS LOG IN OR NOT***************/
+  /************* FOR LOGIN : SESSION STORAGE***************/
 
   login() {
 

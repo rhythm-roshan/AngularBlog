@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
     this.namechange();
   }
-
+/**  to switch the name between sign in or sign out **/
   namechange() {
 
     let temp = JSON.parse(sessionStorage.getItem("currentuser"));

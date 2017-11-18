@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
 
   }
-
+  /************* GET ALL BLOGS***************/
 
   getBlogs() {
     this.request.loadData()
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  /************* GET ALL USERS***************/
   getUsers() {
     this.user.loadData()
       .subscribe((data) => {
@@ -40,6 +41,8 @@ export class HomeComponent implements OnInit {
 
       });
   }
+
+  /************* MARK OR UNMARK A PARTICULAR BLOG AS FAV***************/
 
   MarkAsFav(id) {
     let temp = JSON.parse(sessionStorage.getItem("currentuser"));
@@ -70,6 +73,7 @@ export class HomeComponent implements OnInit {
       }
       else {
         this.arr.push(id);
+        this.arr.sort();
         this.updatedUser = {
           id: tempUser['id'],
           username: tempUser['username'],
@@ -86,21 +90,23 @@ export class HomeComponent implements OnInit {
 
   }
 
+  /*******TO CHECK WHETHER A PARTICULAR BLOG IS MARKED OR NOT AS FAV OF CURRENT USER [LOGGED IN] ***********/
   isFav(id): string {
-    let temp = JSON.parse(sessionStorage.getItem("currentuser"));
-    if (temp != null) {
-      var tempUser = this.users.find(data => data['id'] == temp.id);
-      console.log(tempUser);
-      this.arr = tempUser['favourites'];
-      if (this.arr.includes(id))
-        return "MARKED";
-      else
-        return "MARK AS FAV";
+    if(id) {
+      let temp = JSON.parse(sessionStorage.getItem("currentuser"));
+      if (temp != null) {
+        let tempUser = this.users.find(data => data['id'] == temp.id);
+        if (tempUser != null) {
+          if (tempUser['favourites'].includes(id))
+            return "MARKED";
+          else
+            return "MARK AS FAV";
+        }
+      }
+      else {
+        return "Mark As Fav";
+      }
     }
-    else {
-      return "Mark As Fav";
-    }
-
 
   }
 

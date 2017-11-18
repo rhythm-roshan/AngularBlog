@@ -6,7 +6,7 @@
       "type": "Technology",
       "authorId": 1,
       "author": "admin",
-      "id": 5
+      "id": 1
     },
     {
       "title": "Release of Mahira Khan's film on rape cancelled in Pakistan",
@@ -14,7 +14,7 @@
       "type": "Entertainment",
       "authorId": 1,
       "author": "admin",
-      "id": 6
+      "id": 2
     },
     {
       "title": "I-T recovers luxury cars worth ₹5 crore from Sasikala's aide",
@@ -22,7 +22,7 @@
       "type": "Politics",
       "authorId": 1,
       "author": "admin",
-      "id": 8
+      "id": 3
     },
     {
       "title": "Live samples of one of world's oldest life forms discovered",
@@ -30,7 +30,23 @@
       "type": "Entertainment",
       "authorId": 1,
       "author": "admin",
-      "id": 9
+      "id": 4
+    },
+    {
+      "title": "What was the answer that won Manushi the Miss World title?",
+      "content": "In Miss World 2017's final round, India's Manushi Chhillar was asked, \"Which profession deserves the highest salary and why?\" Manushi's winning answer was, \"A mother deserves the highest respect...when you talk about salary, I don't think it's just about cash but the love and respect you give to someone.\" She added that mothers deserve the highest salary, respect and love.",
+      "type": "Entertainment",
+      "authorId": 3,
+      "author": "rhythm",
+      "id": 5
+    },
+    {
+      "title": "Rajasthan CM requests Irani to halt release of 'Padmavati'",
+      "content": "In a letter to Union Information and Broadcasting Minister Smriti Irani, Rajasthan CM Vasundhara Raje has requested her not to release 'Padmavati' until some necessary changes are made. Raje suggested that a committee should be formed to discuss the film's plot and suggest amendments to avoid hurting sentiments. She added the Censor Board must think of consequences before certifying 'Padmavati'.",
+      "type": "Politics",
+      "authorId": 3,
+      "author": "rhythm",
+      "id": 6
     }
   ],
   "users": [
@@ -39,9 +55,8 @@
       "username": "admin",
       "password": "admin",
       "favourites": [
-        6,
-        10,
-        8
+        1,
+        6
       ]
     },
     {
@@ -55,8 +70,8 @@
       "username": "rhythm",
       "password": "rhythm",
       "favourites": [
-        5,
-        8
+        3,
+        6
       ]
     }
   ]

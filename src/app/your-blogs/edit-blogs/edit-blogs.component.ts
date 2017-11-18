@@ -23,12 +23,13 @@ export class EditBlogsComponent implements OnInit {
 
   }
 
-
+  /************* DELETE A BLOGS***************/
 
   deleteBlog(Blogs) {
     this.deleteBlogs.emit(Blogs);
-    window.location.reload();
   }
+
+  /************* UPDATE A BLOGS***************/
 
   updateBlog(Blogs){
     this.updateBlogs.emit(Blogs);

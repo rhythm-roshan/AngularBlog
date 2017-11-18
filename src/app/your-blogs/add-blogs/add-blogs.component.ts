@@ -26,6 +26,7 @@ export class AddBlogsComponent implements OnInit {
 
   }
 
+  /************* ADD A BLOGS***************/
   addBlog(name, desc,type) {
 
     if (this.buttonName == 'UPDATE') {
@@ -43,14 +44,15 @@ export class AddBlogsComponent implements OnInit {
       this.title = "";
       this.content = "";
       this.type ="";
-      window.location.reload();
     }
   }
 
-
+  /************* DELETE A BLOGS***************/
   deleteBlogDATA(blog) {
     this.deleteBlog.emit(blog);
   }
+
+  /************* UPDATE A BLOGS***************/
 
   updateBlogDATA(blog) {
 
@@ -66,6 +68,8 @@ export class AddBlogsComponent implements OnInit {
 
 
   }
+
+  /************* SINGLE CLICK TO UPDATE AS WELL AS ADD***************/
 
   loadBlog(blog) {
     this.title = blog.title;
